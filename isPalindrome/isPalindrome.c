@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <limits.h>
 
 bool isPalindrome(int x)
 {
@@ -9,6 +10,8 @@ bool isPalindrome(int x)
     int tmp = x;
     while (tmp)
     {
+        if (rev > (INT_MAX / 10))
+            return false;
         rev = rev * 10 + tmp % 10;
         tmp /= 10;
     }
@@ -17,7 +20,7 @@ bool isPalindrome(int x)
 
 int main(void)
 {
-    int nbr = 1221;
+    int nbr = 1234567899;
     printf("%d\n", isPalindrome(nbr));
     return 0;
 }
